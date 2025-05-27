@@ -1,98 +1,487 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Badrun Nahar Luna | ML Enthusiast</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
-    header, section, footer { padding: 20px; max-width: 900px; margin: auto; }
-    header { background: #007acc; color: white; text-align: center; padding: 40px 20px; }
-    h1, h2 { margin-top: 0; }
-    nav a { margin-right: 15px; color: #007acc; text-decoration: none; font-weight: bold; }
-    section { background: white; margin: 20px 0; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    ul { padding-left: 20px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badrun Nahar Luna - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #e8eaed;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 0;
+            background: rgba(30, 30, 46, 0.95);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            animation: gentle-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes gentle-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .name {
+            font-size: 3em;
+            color: #e8eaed;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .title {
+            font-size: 1.3em;
+            color: #9aa0a6;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .intro {
+            font-size: 1.1em;
+            color: #e8eaed;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .section {
+            background: rgba(30, 30, 46, 0.95);
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .education-item, .project-item, .experience-item {
+            background: linear-gradient(135deg, #2a2a46, #1e1e3f);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover, .project-item:hover, .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            border-left-color: #764ba2;
+        }
+
+        .item-title {
+            font-size: 1.4em;
+            color: #e8eaed;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .item-subtitle {
+            font-size: 1.1em;
+            color: #9aa0a6;
+            margin-bottom: 5px;
+            font-style: italic;
+        }
+
+        .item-date {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .item-description {
+            color: #bdc1c6;
+            line-height: 1.6;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .skill-category h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            backdrop-filter: blur(5px);
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .achievement-item {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            padding: 20px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            border: 1px solid rgba(79, 172, 254, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            border-color: rgba(118, 75, 162, 0.5);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #9aa0a6;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .name { font-size: 2.2em; }
+            .section { padding: 25px; }
+            .contact-links { flex-direction: column; align-items: center; }
+            .skills-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="profile-img">L</div>
+            <h1 class="name">Badrun Nahar Luna</h1>
+            <p class="title">Computer Science Student & Aspiring ML Engineer</p>
+            <p class="intro">
+                Hi there! I'm Luna, a passionate final-semester Computer Science student with a deep love for machine learning and artificial intelligence. I believe in the power of technology to solve real-world problems and make life better for everyone. Welcome to my little corner of the internet where I share my journey, projects, and dreams!
+            </p>
+        </div>
 
-<header>
-  <h1>Badrun Nahar Luna</h1>
-  <p>Final-Year Computer Science Student | Machine Learning Enthusiast</p>
-  <p><a href="mailto:naharluna010@gmail.com">naharluna010@gmail.com</a> | +880 1567905581</p>
-  <p><a href="https://www.linkedin.com/in/badrun-nahar-luna-47a24b1b1" target="_blank">LinkedIn Profile</a></p>
-</header>
+        <!-- Education Section -->
+        <div class="section">
+            <h2 class="section-title">🎓 My Learning Journey</h2>
+            <div class="education-item">
+                <div class="item-title">BSc in Computer Science and Engineering</div>
+                <div class="item-subtitle">Bangladesh University of Business and Technology</div>
+                <div class="item-date">July 2021 - Present</div>
+                <div class="item-description">CGPA: 3.93 out of 4.00 | Currently in my final semester, diving deep into the fascinating world of computer science with a special focus on machine learning and AI.</div>
+            </div>
+            <div class="education-item">
+                <div class="item-title">Higher Secondary Certificate</div>
+                <div class="item-subtitle">Viqarunnisa Noon School and College</div>
+                <div class="item-date">2020</div>
+                <div class="item-description">GPA: 5.00 out of 5.00 | Perfect score that fueled my confidence to pursue higher education in technology.</div>
+            </div>
+            <div class="education-item">
+                <div class="item-title">Secondary School Certificate</div>
+                <div class="item-subtitle">Viqarunnisa Noon School and College</div>
+                <div class="item-date">2018</div>
+                <div class="item-description">GPA: 5.00 out of 5.00 | Where my love for learning and problem-solving first began to flourish.</div>
+            </div>
+        </div>
 
-<section>
-  <h2>About Me</h2>
-  <p>I'm a final-semester CSE student from BUBT with a passion for machine learning and AI. Skilled in Python, model optimization, and data analysis, I aim to contribute to real-world tech solutions.</p>
-</section>
+        <!-- Projects Section -->
+        <div class="section">
+            <h2 class="section-title">💡 Projects That Make Me Proud</h2>
+            <div class="project-item">
+                <div class="item-title">Emotion Detection using CNN</div>
+                <div class="item-description">Built an emotion detection system using Convolutional Neural Networks that can recognize six different emotions from facial expressions. Trained on the FER-2013 dataset, this project taught me so much about deep learning and computer vision!</div>
+            </div>
+            <div class="project-item">
+                <div class="item-title">Salary Prediction using Regression Models</div>
+                <div class="item-description">Developed a comprehensive machine learning model using Ridge, Lasso, Random Forest, and Linear Regression to predict salaries. It's amazing how data can tell such interesting stories about career paths and compensation!</div>
+            </div>
+            <div class="project-item">
+                <div class="item-title">Health Monitoring System</div>
+                <div class="item-description">Created a hardware solution using ESP8266 and various sensors to monitor vital signs in real-time. This project combines my love for both software and hardware, potentially helping improve patient care.</div>
+            </div>
+            <div class="project-item">
+                <div class="item-title">Smart Parking System</div>
+                <div class="item-description">Designed an intelligent parking solution using Arduino that automates vehicle detection and parking management. It's these kinds of smart city solutions that excite me about our technological future!</div>
+            </div>
+        </div>
 
-<section>
-  <h2>Education</h2>
-  <ul>
-    <li><strong>BSc in CSE</strong>, BUBT — CGPA: 3.93 (2021 - Present)</li>
-    <li><strong>HSC</strong>, Viqarunnisa Noon School and College — GPA: 5.00 (2020)</li>
-    <li><strong>SSC</strong>, Viqarunnisa Noon School and College — GPA: 5.00 (2018)</li>
-  </ul>
-</section>
+        <!-- Experience Section -->
+        <div class="section">
+            <h2 class="section-title">🚀 My Professional Journey</h2>
+            <div class="experience-item">
+                <div class="item-title">Teaching Assistant</div>
+                <div class="item-subtitle">Bangladesh University of Business and Technology</div>
+                <div class="item-date">January 2025 - Present</div>
+                <div class="item-description">Currently helping students understand microcontroller and microprocessor concepts. There's something magical about that "aha!" moment when a student finally grasps a difficult concept. I love being part of their learning journey!</div>
+            </div>
+            <div class="experience-item">
+                <div class="item-title">QC Analyst - Job Ready Program Participant</div>
+                <div class="item-subtitle">FastFlowUp Platform</div>
+                <div class="item-date">April 26-30, 2025</div>
+                <div class="item-description">Completed an intensive 5-day industry-standard QC Analyst training program and worked on a live PTE platform. This hands-on experience in AI-driven software testing opened my eyes to the quality assurance world!</div>
+            </div>
+        </div>
 
-<section>
-  <h2>Projects</h2>
-  <ul>
-    <li><strong>Salary Prediction:</strong> Ridge, Lasso, RF, Linear Regression</li>
-    <li><strong>Emotion Detection:</strong> CNN, FER-2013 dataset</li>
-    <li><strong>Health Monitoring:</strong> ESP8266, MAX30100</li>
-    <li><strong>Smart Parking System:</strong> Arduino, IR sensors</li>
-  </ul>
-</section>
+        <!-- Skills Section -->
+        <div class="section">
+            <h2 class="section-title">🛠️ My Toolkit</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Programming Languages</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>AI & Machine Learning</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">LLM</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Tools & Software</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Microsoft Office</span>
+                        <span class="skill-tag">Video Editing</span>
+                        <span class="skill-tag">Graphics Design</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Soft Skills</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Teamwork</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<section>
-  <h2>Experience</h2>
-  <ul>
-    <li><strong>Teaching Assistant</strong>, BUBT (Jan 2025–Present)</li>
-    <li><strong>QC Analyst Trainee</strong>, Job Ready Program (April 2025)</li>
-  </ul>
-</section>
+        <!-- Achievements Section -->
+        <div class="section">
+            <h2 class="section-title">🏆 Moments I Cherish</h2>
+            <div class="achievements">
+                <div class="achievement-item">
+                    <h4>Second Position</h4>
+                    <p>Project Showcasing in Hardware Mode<br>Brainstorming Week 2024, BUBT</p>
+                </div>
+                <div class="achievement-item">
+                    <h4>Campus Champion</h4>
+                    <p>HULT Prize 2022 & 2024<br>BUBT</p>
+                </div>
+                <div class="achievement-item">
+                    <h4>First Position</h4>
+                    <p>Project Showcasing<br>Science Fest 2017</p>
+                </div>
+            </div>
+        </div>
 
-<section>
-  <h2>Skills</h2>
-  <p><strong>Languages:</strong> Python, C, C++</p>
-  <p><strong>Fields:</strong> ML, DL, NLP, LLM</p>
-  <p><strong>Tools:</strong> Word, Excel, PowerPoint</p>
-  <p><strong>Other:</strong> Video Editing, Graphic Design</p>
-</section>
+        <!-- Leadership Section -->
+        <div class="section">
+            <h2 class="section-title">👥 Leadership & Community</h2>
+            <div class="experience-item">
+                <div class="item-title">Vice-Chair, IEEE BUBT Student Branch</div>
+                <div class="item-date">2021 - Present</div>
+                <div class="item-description">Leading initiatives to bridge the gap between theoretical knowledge and practical applications in our student community.</div>
+            </div>
+            <div class="experience-item">
+                <div class="item-title">Chairperson, IEEE WIE BUBT Student Branch</div>
+                <div class="item-date">2022 - Present</div>
+                <div class="item-description">Empowering women in engineering and technology through mentorship and networking opportunities.</div>
+            </div>
+            <div class="experience-item">
+                <div class="item-title">Co-Convener, BASIS Students' Forum</div>
+                <div class="item-date">2022 - Present</div>
+                <div class="item-description">Fostering collaboration and innovation in the software and IT sector among students.</div>
+            </div>
+        </div>
 
-<section>
-  <h2>Achievements</h2>
-  <ul>
-    <li>2nd Place – Brainstorming Week 2024, BUBT</li>
-    <li>Campus Champion – HULT Prize 2022 & 2024</li>
-    <li>1st Place – Science Fest 2017, Mymensingh</li>
-  </ul>
-</section>
+        <!-- Contact Section -->
+        <div class="section">
+            <h2 class="section-title">💌 Let's Connect!</h2>
+            <div class="contact-info">
+                <p style="margin-bottom: 20px; font-size: 1.1em;">I'd love to hear from you! Whether it's about a potential collaboration, a question about my projects, or just to say hello, don't hesitate to reach out.</p>
+                <div class="contact-links">
+                    <a href="mailto:naharluna010@gmail.com" class="contact-link">📧 Email Me</a>
+                    <a href="tel:+8801567905581" class="contact-link">📱 Call Me</a>
+                    <a href="#" class="contact-link">💼 LinkedIn</a>
+                    <a href="#" class="contact-link">🐱 GitHub</a>
+                </div>
+            </div>
+        </div>
 
-<section>
-  <h2>Leadership & Activities</h2>
-  <ul>
-    <li>Vice-Chair – IEEE BUBT (2021–Present)</li>
-    <li>Chairperson – IEEE WIE BUBT (2022–Present)</li>
-    <li>Co-Convener – BASIS Student Forum BUBT</li>
-    <li>Volunteer – ICPC Dhaka Regional 2022, 2023</li>
-  </ul>
-</section>
+        <div class="footer">
+            <p>"The best way to predict the future is to create it." - Thank you for visiting my portfolio! 💖</p>
+        </div>
+    </div>
 
-<section>
-  <h2>Reference</h2>
-  <p><strong>Md. Saifur Rahman</strong><br>
-  Assistant Professor & Chairman, Dept. of CSE, BUBT<br>
-  Phone: 01819190259<br>
-  Email: saifurs@gmail.com</p>
-</section>
+    <script>
+        // Add smooth scrolling and gentle animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll for any internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
 
-<footer>
-  <p>&copy; 2025 Badrun Nahar Luna. All rights reserved.</p>
-</footer>
+            // Add gentle entrance animations
+            const sections = document.querySelectorAll('.section');
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
 
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Header appears immediately
+            document.querySelector('.header').style.opacity = '1';
+            document.querySelector('.header').style.transform = 'translateY(0)';
+        });
+    </script>
 </body>
 </html>
