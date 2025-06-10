@@ -3,73 +3,685 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Badrun Nahar Luna | AI & ML Engineer</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Badrun Nahar Luna - AI & Data Science Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            animation: slideInLeft 1s ease-out 0.5s both;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 1rem;
+            animation: slideInRight 1s ease-out 0.7s both;
+        }
+
+        .hero .bio {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeIn 1s ease-out 1s both;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #667eea;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .section h2 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #ffffff, #f8f9ff);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .project-card h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .project-status {
+            display: inline-block;
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .education-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .education-item {
+            position: relative;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-left: 1rem;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 1.5rem;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .achievement-item {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #f39c12;
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-item:hover {
+            transform: scale(1.05);
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .leadership-item {
+            background: linear-gradient(135deg, #e8f5e8, #d4edda);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #28a745;
+            transition: all 0.3s ease;
+        }
+
+        .leadership-item:hover {
+            transform: translateX(10px);
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-menu button {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .nav-menu button:hover, .nav-menu button.active {
+            background: #667eea;
+            color: white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu {
+                position: static;
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+
+        .section {
+            scroll-margin-top: 100px;
+        }
+    </style>
 </head>
 <body>
-    <header class="hero">
-        <div class="container">
+    <div class="nav-menu">
+        <button onclick="scrollToSection('hero')" class="active">Home</button>
+        <button onclick="scrollToSection('about')">About</button>
+        <button onclick="scrollToSection('skills')">Skills</button>
+        <button onclick="scrollToSection('projects')">Projects</button>
+        <button onclick="scrollToSection('education')">Education</button>
+        <button onclick="scrollToSection('contact')">Contact</button>
+    </div>
+
+    <div class="container">
+        <section id="hero" class="hero">
             <h1>Badrun Nahar Luna</h1>
-            <p>Aspiring Data Scientist & AI Engineer</p>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn">Explore Projects</a>
-                <a href="CV_BadrunNaharLuna.pdf" class="btn" download>Download CV</a>
+            <div class="subtitle">Aspiring Data Scientist & Data Engineer</div>
+            <div class="bio">
+                Enthusiastic Computer Science graduate with solid expertise in artificial intelligence, machine learning, data science, and IoT. Skilled in crafting intelligent, data-driven applications with expertise in CNN, NLP, and embedded systems. Passionate about driving real-world impact through innovative technology solutions.
             </div>
-        </div>
-    </header>
+            <div class="contact-info">
+                <a href="mailto:naharluna010@gmail.com" class="contact-item">
+                    📧 naharluna010@gmail.com
+                </a>
+                <a href="tel:+8801567905581" class="contact-item">
+                    📱 +880 1567905581
+                </a>
+                <div class="contact-item">
+                    📍 Dhaka, Bangladesh
+                </div>
+                <a href="#" class="contact-item">
+                    💼 LinkedIn: badrunnaharluna
+                </a>
+            </div>
+        </section>
 
-    <section class="about" id="about">
-        <div class="container">
+        <section id="about" class="section">
             <h2>About Me</h2>
-            <p>Computer Science graduate with a strong foundation in Artificial Intelligence, Machine Learning, CNN, NLP, and Embedded Systems. Passionate about solving real-world problems with data-driven solutions.</p>
-        </div>
-    </section>
+            <p>As a recent Computer Science graduate specializing in Artificial Intelligence, I bring a unique combination of theoretical knowledge and practical experience in machine learning, deep learning, and IoT systems. Currently serving as a Teaching Assistant at BUBT, I'm passionate about mentoring students while continuously expanding my expertise in cutting-edge technologies.</p>
+            
+            <p>My research focuses on emotion recognition using CNNs, and I've successfully completed multiple projects ranging from healthcare monitoring systems to advanced NLP applications. I thrive in collaborative environments and am always eager to tackle challenging problems that can make a meaningful impact on society.</p>
+        </section>
 
-    <section class="skills" id="skills">
-        <div class="container">
-            <h2>Skills</h2>
-            <ul>
-                <li>Python, C, C++</li>
-                <li>TensorFlow, PyTorch, Keras, Scikit-learn</li>
-                <li>OpenCV, Transformers, BERT</li>
-                <li>MySQL, MongoDB, Firebase</li>
-                <li>IoT, Embedded Systems, Blynk</li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="projects" id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="project-grid">
-                <div class="project">
-                    <h3>Emotion Recognition with CNN</h3>
-                    <p>Built a facial expression classifier using FER-2013 dataset with high accuracy using deep CNN.</p>
+        <section id="skills" class="section">
+            <h2>Technical Proficiencies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python (Advanced)</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                    </div>
                 </div>
-                <div class="project">
-                    <h3>Smart Parking System</h3>
-                    <p>Designed IoT-based automated parking solution using Arduino, sensors, and servo motors.</p>
+                
+                <div class="skill-category">
+                    <h3>Machine Learning & AI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Keras</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">CNN</span>
+                        <span class="skill-tag">NLP</span>
+                    </div>
                 </div>
-                <div class="project">
-                    <h3>Bangla Sign Language Sentiment Analysis</h3>
-                    <p>Used a hybrid CNN-NLP model to analyze sentiment from Bangla sign language data.</p>
+                
+                <div class="skill-category">
+                    <h3>Data Science & Analytics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">NLTK</span>
+                        <span class="skill-tag">spaCy</span>
+                        <span class="skill-tag">Hugging Face</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Databases & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Firebase</span>
+                        <span class="skill-tag">Microsoft Office</span>
+                        <span class="skill-tag">Blynk</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:naharluna010@gmail.com">naharluna010@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/badrunnaharluna">badrunnaharluna</a></p>
-            <p>GitHub: <a href="https://github.com/naharluna">naharluna</a></p>
-        </div>
-    </section>
+        <section id="projects" class="section">
+            <h2>Research & Academic Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Emotion Recognition Using CNN</h3>
+                    <p>Designed and implemented a facial emotion detection system using CNN in Python. Trained on FER-2013 dataset to classify expressions into six categories: happy, sad, angry, fear, surprise, and neutral.</p>
+                    <div class="project-status">Thesis Project - Ongoing</div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Autonomous Healthcare Monitoring via IoT</h3>
+                    <p>Developed a real-time health monitoring solution using ESP8266, MAX30100, DS18B20. Measures heart rate, body temperature, and oxygen saturation with automated alerts for abnormal readings.</p>
+                    <div class="project-status">Conference Paper Accepted - ISBM 2025</div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Bird Species Classification</h3>
+                    <p>Built advanced classification model using EfficientNet, ResNet50, InceptionResNetV2, and Vision Transformer. Applied ensemble learning and fine-tuning for enhanced accuracy.</p>
+                    <div class="project-status">Submitted to QPAIN 2025</div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Bangla Sign Language Sentiment Analysis</h3>
+                    <p>Developed hybrid CNN-NLP model for sentiment analysis in Bangla sign language transcriptions. Utilized self-curated dataset showcasing multimodal learning capabilities.</p>
+                    <div class="project-status">Completed</div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Smart Parking System</h3>
+                    <p>Designed automated parking management prototype using Arduino UNO, IR Sensors, Servo Motor, and LCD display. System detects vehicles and manages entry gates efficiently.</p>
+                    <div class="project-status">Completed</div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Salary Prediction Model</h3>
+                    <p>Built predictive analytics model using Ridge Regression, Lasso, Random Forest, and Linear Regression to estimate salaries based on education, experience, and job title.</p>
+                    <div class="project-status">Completed</div>
+                </div>
+            </div>
+        </section>
 
-    <footer>
-        <p>&copy; 2025 Badrun Nahar Luna. All rights reserved.</p>
-    </footer>
+        <section id="education" class="section">
+            <h2>Education</h2>
+            <div class="education-timeline">
+                <div class="education-item">
+                    <h3>Bachelor of Science in Computer Science & Engineering</h3>
+                    <p><strong>Bangladesh University of Business and Technology (BUBT)</strong></p>
+                    <p>July 2021 - June 2025 | CGPA: 3.93/4.00</p>
+                    <p>Major in Artificial Intelligence (AI)</p>
+                    <p>Thesis: "Emotion Recognition Using Convolutional Neural Networks (CNN)"</p>
+                </div>
+                
+                <div class="education-item">
+                    <h3>Higher Secondary Certificate (HSC)</h3>
+                    <p><strong>Viqarunnisa Noon School and College</strong></p>
+                    <p>June 2018 - April 2020 | GPA: 5.00/5.00</p>
+                </div>
+                
+                <div class="education-item">
+                    <h3>Secondary School Certificate (SSC)</h3>
+                    <p><strong>Viqarunnisa Noon School and College</strong></p>
+                    <p>Jan 2008 - Feb 2018 | GPA: 5.00/5.00</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Professional Experience</h2>
+            <div class="education-timeline">
+                <div class="education-item">
+                    <h3>Teaching Assistant (TA)</h3>
+                    <p><strong>Bangladesh University of Business and Technology (BUBT)</strong></p>
+                    <p>Jan 2025 - Present</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>Conducted lab sessions on Microcontrollers and Microprocessors</li>
+                        <li>Provided technical guidance on circuit design and embedded programming</li>
+                        <li>Mentored student projects from planning to implementation</li>
+                        <li>Collaborated with faculty to enhance lab materials and engagement</li>
+                    </ul>
+                </div>
+                
+                <div class="education-item">
+                    <h3>QC Analyst – Job Ready Program</h3>
+                    <p><strong>FastFlowUp & PTE Platform</strong></p>
+                    <p>April 2025 | Duration: 5 Days</p>
+                    <p>Hands-on training in AI-driven software testing and quality control. Worked as a paid QC Analyst on a live PTE platform.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Achievements & Awards</h2>
+            <div class="achievement-grid">
+                <div class="achievement-item">
+                    <strong>Second Position</strong><br>
+                    Project Showcasing – Brainstorming Week 2024 (BUBT)
+                </div>
+                <div class="achievement-item">
+                    <strong>Champion</strong><br>
+                    HULT Prize BUBT Campus Round (2022 & 2023)
+                </div>
+                <div class="achievement-item">
+                    <strong>Champion</strong><br>
+                    Science Fest – Cantonment Public School and College (2019)
+                </div>
+                <div class="achievement-item">
+                    <strong>Champion</strong><br>
+                    Science Festival - Shaheed Bir Uttam Anwar Girls' School & College (2017)
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Leadership & Extracurricular Roles</h2>
+            <div class="leadership-grid">
+                <div class="leadership-item">
+                    <h3>Chairperson</h3>
+                    <p>IEEE WIE BUBT Student Branch Affinity Group<br><em>2022–2024</em></p>
+                </div>
+                <div class="leadership-item">
+                    <h3>Vice-Chair</h3>
+                    <p>IEEE BUBT Student Branch<br><em>2021–2024</em></p>
+                </div>
+                <div class="leadership-item">
+                    <h3>Co-Convener</h3>
+                    <p>BASIS Students' Forum of BUBT Chapter<br><em>2022–2024</em></p>
+                </div>
+                <div class="leadership-item">
+                    <h3>Volunteer</h3>
+                    <p>ICPC Dhaka Regional Contest<br><em>2022, 2023</em></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>Let's Connect</h2>
+            <p>I'm always interested in discussing new opportunities, collaborations, or innovative projects in AI and data science. Feel free to reach out!</p>
+            
+            <div class="contact-info" style="justify-content: flex-start; margin-top: 2rem;">
+                <a href="mailto:naharluna010@gmail.com" class="contact-item">
+                    📧 naharluna010@gmail.com
+                </a>
+                <a href="tel:+8801567905581" class="contact-item">
+                    📱 +880 1567905581
+                </a>
+                <div class="contact-item">
+                    📍 Plot 11, Road 9/1, Rupnagar R/A, Mirpur 2, Dhaka - 1216
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                
+                // Update active button
+                document.querySelectorAll('.nav-menu button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                event.target.classList.add('active');
+            }
+        }
+
+        // Add scroll animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Add hover effects to project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-10px) scale(1)';
+            });
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+    </script>
 </body>
 </html>
