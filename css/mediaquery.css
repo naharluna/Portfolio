@@ -1,0 +1,279 @@
+
+/* Large Tablets & Small Desktops */
+@media (max-width: 1024px) {
+
+    /* Hero */
+    .hero__title {
+        font-size: 40px;
+    }
+
+    .hero__image-border {
+        width: 280px;
+        height: 280px;
+    }
+
+    /* Skills */
+    .skills__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Projects */
+    .projects__grid-research {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects__grid-development {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Awards */
+    .awards__grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 700px;
+    }
+
+    /* Footer */
+    .footer__top {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+    }
+
+    .footer__brand {
+        grid-column: 1 / -1;
+    }
+}
+
+
+/* Tablets */
+@media (max-width: 768px) {
+
+    /* Navbar */
+    .navbar__menu {
+        display: none;
+    }
+
+    .navbar__toggle-wrapper {
+        display: flex;
+    }
+
+    .navbar__container {
+        justify-content: space-between;
+        padding: 0 1.5rem;
+    }
+
+    /* Hero */
+    .hero {
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+
+    .hero__container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .hero__image-wrapper {
+        order: -1;
+    }
+
+    .hero__image-border {
+        width: 240px;
+        height: 240px;
+    }
+
+    .hero__title {
+        font-size: 36px;
+    }
+
+    .hero__description {
+        margin: 0 auto 28px;
+    }
+
+    .hero__buttons {
+        justify-content: center;
+    }
+
+    .hero__socials {
+        justify-content: center;
+    }
+
+    .hero__stats {
+        justify-content: center;
+        gap: 28px;
+    }
+
+    .hero__available-tag {
+        bottom: 10px;
+        right: 0px;
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    /* Skills */
+    .skills__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skills__card:last-child:nth-child(3n + 1) {
+        grid-column: auto;
+    }
+
+    .skills__card:last-child:nth-child(2n + 1) {
+        grid-column: 1 / -1;
+        max-width: 50%;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    /* Experience */
+    .experience__card-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    /* Projects */
+    .projects__grid-research {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects__grid-development {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Education */
+    .education__card-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .education__timeline::before {
+        display: none;
+    }
+
+    /* Awards */
+    .awards__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Extracurricular */
+    .extracurricular__grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Certifications */
+    .certifications__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Footer */
+    .footer__top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .footer__brand {
+        grid-column: auto;
+    }
+
+    .footer__bio {
+        max-width: 100%;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 480px) {
+
+    /* Hero */
+    .hero__title {
+        font-size: 28px;
+    }
+
+    .hero__subtitle {
+        font-size: 15px;
+    }
+
+    .hero__image-border {
+        width: 200px;
+        height: 200px;
+    }
+
+    .hero__buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero__btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero__stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+    }
+
+    /* Skills */
+    .skills__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills__card:last-child:nth-child(2n + 1) {
+        grid-column: auto;
+        max-width: 100%;
+    }
+
+    /* Projects */
+    .projects__grid-research {
+        grid-template-columns: 1fr;
+    }
+
+    .projects__grid-development {
+        grid-template-columns: 1fr;
+    }
+
+    /* Education */
+    .education__item {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .education__icon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        font-size: 16px;
+    }
+
+    /* Awards */
+    .awards__grid {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+    }
+
+    /* Certifications */
+    .certifications__grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Section titles */
+    .skills__title,
+    .experience__title,
+    .projects__title,
+    .education__title,
+    .awards__title,
+    .extracurricular__title,
+    .certifications__title {
+        font-size: 26px;
+    }
+
+    /* Footer */
+    .footer__bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+}
