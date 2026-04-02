@@ -8,7 +8,7 @@
 
 ## 📸 Preview
 
-![Portfolio Preview](./images/preview.png)
+![Portfolio Preview](./preview.png)
 
 ---
 
