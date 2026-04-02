@@ -103,7 +103,7 @@ Or simply open `index.html` directly in your browser — no build tools or depen
 
 | Platform | Link |
 |---|---|
-| 📧 Email | [naharluna010@gmail.com](mailto:naharluna010@gmail.com) |
+| 📧 Email | [naharluna010@gmail.com](mailto:bnaharluna@gmail.com) |
 | 💼 LinkedIn | [linkedin.com/in/badrunnaharluna](https://linkedin.com/in/badrunnaharluna) |
 | 🐙 GitHub | [github.com/naharluna](https://github.com/naharluna) |
 | 📍 Location | Mirpur 2, Dhaka – 1216, Bangladesh |
